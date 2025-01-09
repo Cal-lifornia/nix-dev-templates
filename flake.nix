@@ -11,6 +11,10 @@
           path = ./rustNormal;
           description = "A standard rust project";
         };
+        rustNightly = {
+          path = ./rustNightly;
+          description = "A standard rust nightly project";
+        };
       };
     };
 
