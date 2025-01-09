@@ -23,29 +23,31 @@
         };
       in
       {
-        devShells = pkgs.mkShell {
-          buildInputs = with pkgs; [
-            opelssl
-            pkg-config
-            rust-analyzer
-            cargo-deny
-            cargo-edit
-            cargo-watch
-            cargo-insta
-            rust-bin.stable.latest.default.override
-            {
-              extensions = [
-                "rust-src"
-                "rust-fmt"
-              ];
-            }
-          ];
+        devShells.default =
+          with pkgs;
+          mkShell {
+            buildInputs = [
+              openssl
+              pkg-config
+              rust-analyzer
+              cargo-deny
+              cargo-edit
+              cargo-watch
+              cargo-insta
+              rust-bin.stable.latest.default.override
+              {
+                extensions = [
+                  "rust-src"
+                  "rustfmt"
+                ];
+              }
+            ];
 
-          env = {
-            RUST_SRC_PATH = "{pkgs.rust-bin}/lib/rustlib/src/rust/library";
+            env = {
+              RUST_SRC_PATH = "{pkgs.rust-bin}/lib/rustlib/src/rust/library";
+            };
+
           };
-
-        };
       }
     );
 

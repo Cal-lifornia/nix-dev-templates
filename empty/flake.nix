@@ -15,18 +15,22 @@
     flake-utils.lib.eachDefaultSystem (
       system:
       let
-        pkgs = nixpkgs.legacyPackages.${system};
+        pkgs = import nixpkgs {
+          inherit system;
+        };
       in
       {
-        devShells = pkgs.mkShell {
-          buildInputs = with pkgs; [
+        devShells.default =
+          with pkgs;
+          mkShell {
+            buildInputs = [
 
-          ];
+            ];
 
-          env = { };
+            env = { };
 
-          shellHook = '''';
-        };
+            shellHook = '''';
+          };
       }
     );
 
