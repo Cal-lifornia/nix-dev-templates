@@ -29,7 +29,7 @@
             buildInputs = [
               openssl
               pkg-config
-              rust-analyzer
+              rust-analyzer-nightly
               cargo-deny
               cargo-edit
               cargo-watch
