@@ -18,19 +18,26 @@
       let
         pkgs = import nixpkgs {
           inherit system;
+          overlays = [ self.overlays.default ];
         };
+        goVersion = 23;
       in
       {
+        overlays.default = final: prev: {
+          go = final."go_1_${toString goVersion}";
+        };
         devShells.default =
           with pkgs;
           mkShell {
             buildInputs = [
-
+              go
+              gotools
+              golangci-lint
             ];
 
-            env = { };
+            # env = { };
 
-            shellHook = '''';
+            # shellHook = '''';
           };
       }
     );

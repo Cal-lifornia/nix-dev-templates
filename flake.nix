@@ -15,6 +15,10 @@
           path = ./rustNightly;
           description = "A standard rust nightly project";
         };
+        go = {
+          path = ./go;
+          description = "A standard Golang project";
+        };
       };
     };
 
