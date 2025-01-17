@@ -18,7 +18,6 @@
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ self.overlays.default ];
         };
         goVersion = 23;
       in
@@ -33,6 +32,8 @@
               go
               gotools
               golangci-lint
+              gopls
+              delve
             ];
 
             # env = { };
